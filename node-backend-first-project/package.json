@@ -1,7 +1,6 @@
 {
   "name": "backend-first-project",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -16,5 +15,6 @@
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "nodemon": "^2.0.22"
-  }
+  },
+  "description": ""
 }
