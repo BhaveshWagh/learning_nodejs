@@ -14,8 +14,6 @@ const app = express();
 
 const MONGO_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}/${process.env.MONGO_DB_NAME}`;
 
-// const MONGO_URI = `mongodb+srv://adminNode:Node1234@cluster0.0vhtt.mongodb.net/NodeTestDb`;
-
 //db connection
 mongoose
   .connect(MONGO_URI)
