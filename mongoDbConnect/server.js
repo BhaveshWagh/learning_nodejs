@@ -2,9 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userModel = require("./userSchema");
 
+require('dotenv').config(); // Load environment variables
+
 const app = express();
 
-const MONGO_URL = `mongodb+srv://adminNode:admin1234@cluster0.0vhtt.mongodb.net/testingDb`;
 
 // db connect
 mongoose
