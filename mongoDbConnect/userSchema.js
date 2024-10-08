@@ -19,6 +19,10 @@ const userSchema = new Schema({
     type: String,
     default: "India",
   },
+  job:{
+    type:String,
+    default:"AirPort Security"
+  }
 });
 
 const userModel = mongoose.model("user", userSchema);

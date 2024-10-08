@@ -1,15 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userModel = require("./userSchema");
+const bcrypt = require("bcrypt");
 
-require('dotenv').config(); // Load environment variables
+const userModel = require("./userSchema");
+require("dotenv").config(); // Load environment variables
 
 const app = express();
 
-
 // db connect
 mongoose
-  .connect(MONGO_URL)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("mongodb connected successfully"))
   .catch((err) => console.log("mongoose error :" + err));
 
@@ -21,22 +21,17 @@ app.get("/home", (req, res) => {
   res.send("Cool! ");
 });
 
-// app.post("/create-user", async (req, res) => {
-
-//   console.log(req.body);
-
-//   res.send("all okk");
-// });
-
-app.post("/create-user", async (req, res) => {
+app.post("/register", async (req, res) => {
   console.log(req.body);
 
   const { name, email, password } = req.body;
 
+  const hashedPassword = await bcrypt.hash(password, Number(process.env.SALT));
+
   const userObj = new userModel({
     name: name,
     email: email,
-    password: password,
+    password: hashedPassword,
   });
   console.log(userObj);
 
