@@ -1,14 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userModel = require("./userSchema");
-require('dotenv').config(); // Load environment variables
-
-// const express = require("express");
-
-// integrate mongoose
-// const mongoose = require("mongoose");
-// const userModel = require('./userSchema')
-
+require('dotenv').config(); 
 
 const app = express();
 
@@ -21,8 +14,8 @@ mongoose
   .catch((err) => console.log(err));
 
 //middleware
-app.use(express.json());
-// app.use(express.urlencoded({extended : true}))       //form body parser
+app.use(express.json()); // parsing JSON payloads.
+// app.use(express.urlencoded({extended : true}))       // for parsing URL-encoded data. && form body parser 
 
 //api
 app.get("/", (req, res) => {
